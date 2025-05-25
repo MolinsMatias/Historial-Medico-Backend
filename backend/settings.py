@@ -25,6 +25,10 @@ if RENDER_EXTERNAL_HOSTNAME:
 if DEBUG:
     ALLOWED_HOSTS.append('*') 
 
+if 'RENDER' in os.environ:
+    import oracledb
+    oracledb.init_oracle_client(lib_dir="/opt/oracle/instantclient")
+
 
 
 INSTALLED_APPS = [
