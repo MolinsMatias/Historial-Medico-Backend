@@ -25,7 +25,7 @@ RUN curl -O https://download.oracle.com/otn_software/linux/instantclient/instant
     ln -s /opt/oracle/instantclient_21_11 /opt/oracle/instantclient
 
 ENV LD_LIBRARY_PATH=/opt/oracle/instantclient
-ENV TNS_ADMIN=/app/wallet  # ruta donde debes colocar tu wallet en el proyecto
+ENV TNS_ADMIN=/app/wallet 
 
 
 RUN pip install --upgrade pip
