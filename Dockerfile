@@ -19,10 +19,12 @@ WORKDIR /app
 
 COPY . .
 
-RUN curl -O https://download.oracle.com/otn_software/linux/instantclient/instantclient-basiclite-linux.x64-21.11.0.0.0dbru.zip && \
-    unzip instantclient-basiclite-linux.x64-21.11.0.0.0dbru.zip -d /opt/oracle && \
-    rm instantclient-basiclite-linux.x64-21.11.0.0.0dbru.zip && \
+RUN curl -L -o instantclient.zip https://www.dropbox.com/scl/fi/llvitf1gtoupt6kvuuusp/instantclient-basic-linux.x64-23.8.0.25.04.zip?rlkey=atfky3qn4pm7tmh8avb07r7zv&e=1&st=4sik7r8a&dl=1 && \
+    unzip instantclient.zip -d /opt/oracle && \
+    rm instantclient.zip && \
     ln -s /opt/oracle/instantclient_21_11 /opt/oracle/instantclient
+
+
 
 ENV LD_LIBRARY_PATH=/opt/oracle/instantclient
 ENV TNS_ADMIN=/app/wallet 
