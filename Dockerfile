@@ -19,10 +19,11 @@ WORKDIR /app
 
 COPY . .
 
-RUN curl -L -o instantclient.zip https://www.dropbox.com/scl/fi/llvitf1gtoupt6kvuuusp/instantclient-basic-linux.x64-23.8.0.25.04.zip?rlkey=atfky3qn4pm7tmh8avb07r7zv&e=1&st=4sik7r8a&dl=1 && \
+RUN curl -L -o instantclient.zip "https://www.dropbox.com/scl/fi/llvitf1gtoupt6kvuuusp/instantclient-basic-linux.x64-23.8.0.25.04.zip?rlkey=atfky3qn4pm7tmh8avb07r7zv&dl=1" && \
     unzip instantclient.zip -d /opt/oracle && \
     rm instantclient.zip && \
-    ln -s /opt/oracle/instantclient_21_11 /opt/oracle/instantclient
+    ln -s /opt/oracle/instantclient_23_8 /opt/oracle/instantclient
+
 
 
 
