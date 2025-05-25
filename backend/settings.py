@@ -6,13 +6,10 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-
-
-
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', default='django')
 
 
-DEBUG = os.environ.get('RENDER') is None
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
@@ -101,6 +98,20 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'ERROR',
+    },
 }
 
 

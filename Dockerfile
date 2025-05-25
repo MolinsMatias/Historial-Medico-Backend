@@ -35,4 +35,4 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "backend.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "backend.wsgi:application"]
