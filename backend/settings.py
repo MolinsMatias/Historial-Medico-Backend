@@ -46,8 +46,6 @@ INSTALLED_APPS = [
     'medico',
     'examen',
     'documento',
-    
-
 
 ]
 
