@@ -20,16 +20,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# Clave secreta de Django
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', default='django')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+# DEBUG solo activo si no estás en Render
+DEBUG = os.environ.get('RENDER') is None
 
-ALLOWED_HOSTS = []
+# Hosts permitidos
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
+# Agregar el dominio generado por Render
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
+# (Opcional) Si quieres permitir todos los hosts en pruebas
+if DEBUG:
+    ALLOWED_HOSTS.append('*') 
 
 # Application definition
 
@@ -100,6 +107,20 @@ DATABASES = {
             'config_dir': str(BASE_DIR / 'wallet'),
             'wallet_location': str(BASE_DIR / 'wallet'),
             'wallet_password': 'GEFtlkUG7J7zV7JJ6b',
+        },
+    }
+}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': os.environ.get('ORACLE_CONNECT_STRING'),  # con alias o full connect string
+        'USER': os.environ.get('ORACLE_USER'),
+        'PASSWORD': os.environ.get('ORACLE_PASSWORD'),
+        'OPTIONS': {
+            'config_dir': str(BASE_DIR / 'wallet'),
+            'wallet_location': str(BASE_DIR / 'wallet'),
+            'wallet_password': os.environ.get('ORACLE_WALLET_PASSWORD'),
         },
     }
 }
