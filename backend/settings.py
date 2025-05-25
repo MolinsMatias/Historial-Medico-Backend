@@ -87,7 +87,6 @@ DATABASES = {
         'USER': os.environ.get('ORACLE_USER'),
         'PASSWORD': os.environ.get('ORACLE_PASSWORD'),
         'OPTIONS': {
-            'config_dir': str(BASE_DIR / 'wallet'),
             'wallet_location': str(BASE_DIR / 'wallet'),
             'wallet_password': os.environ.get('ORACLE_WALLET_PASSWORD'),
         },
