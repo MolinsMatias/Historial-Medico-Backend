@@ -1,7 +1,7 @@
-from django.shortcuts import render
 from .models import HistorialMedico
 from .serializer import HistMedSerializer
 from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView
+
 # Create your views here.
 
 class HistMedList(ListCreateAPIView):

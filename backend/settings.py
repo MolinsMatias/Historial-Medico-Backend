@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'medico',
     'examen',
     'documento',
+    'logs',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  
@@ -86,9 +87,6 @@ if DEBUG:
     print("Wallet files:", os.listdir(str(BASE_DIR / 'wallet')))
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ],
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     ),
