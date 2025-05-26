@@ -19,7 +19,6 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('api/', views.api_root, name='api-root'),
     path('api/paciente/', include('paciente.urls')),
     path('api/hist-medico/', include('historialMedico.urls')),
     path('api/consulta-medica/', include('consultaMedica.urls')),

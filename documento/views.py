@@ -9,7 +9,12 @@ class DocumentoList(ListCreateAPIView):
     serializer_class = DocumentoSerializer
      
 
-class DocumentoDetail(ListCreateAPIView):
+class DocumentoDetail(RetrieveUpdateDestroyAPIView):
+    queryset = Documento.objects.all()
+    lookup_field = 'id_documento'
+    serializer_class = DocumentoSerializer
+
+class DocumentoHistorialDetail(ListCreateAPIView):
     serializer_class = DocumentoSerializer
 
     def get_queryset(self):
