@@ -87,11 +87,12 @@ DATABASES = {
         'USER': os.environ.get('ORACLE_USER'),
         'PASSWORD': os.environ.get('ORACLE_PASSWORD'),
         'OPTIONS': {
-            'wallet_location': str(BASE_DIR / 'wallet'),
-            'wallet_password': os.environ.get('ORACLE_WALLET_PASSWORD'),
+            'config_dir': str(BASE_DIR / 'wallet'),
         },
     }
 }
+
+print("///////////////////////////////////////////////////////////Database configuration:", DATABASES['default'])
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
