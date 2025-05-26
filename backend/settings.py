@@ -90,8 +90,8 @@ DATABASES = {
     }
 }
 
-print("///////////////////////////////////////////////////////////Database configuration:", DATABASES['default'])
-print("//////////////////////////////////////////////////////////Wallet files:", os.listdir('/app/wallet'))
+print("////////////////////Database configuration:", DATABASES['default'])
+print("////////////////////Wallet files:", os.listdir('/app/wallet'))
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
@@ -145,3 +145,15 @@ STATIC_URL = 'static/'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import oracledb
+try:
+    conn = oracledb.connect(
+        user=os.environ.get('ORACLE_USER'),
+        password=os.environ.get('ORACLE_PASSWORD'),
+        dsn=os.environ.get('ORACLE_CONNECT_STRING'),
+        config_dir=str(BASE_DIR / 'wallet')
+    )
+    print("✅ Conexión directa con oracledb OK")
+except Exception as e:
+    print("❌ Error conectando manualmente:", e)

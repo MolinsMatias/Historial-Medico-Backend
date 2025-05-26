@@ -19,6 +19,7 @@ WORKDIR /app
 
 COPY . .
 
+
 RUN curl -L -o instantclient.zip "https://www.dropbox.com/scl/fi/llvitf1gtoupt6kvuuusp/instantclient-basic-linux.x64-23.8.0.25.04.zip?rlkey=atfky3qn4pm7tmh8avb07r7zv&dl=1" && \
     unzip instantclient.zip -d /opt/oracle && \
     rm instantclient.zip && \
@@ -33,6 +34,8 @@ ENV TNS_ADMIN=/app/wallet
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+
+EXPOSE 10000
 
 
 CMD ["gunicorn", "--bind", "0.0.0.0:10000", "backend.wsgi:application"]
