@@ -5,7 +5,7 @@ import oracledb
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'mmolins007')  
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'djangopruba')  
 
 DEBUG = 'RENDER' not in os.environ
 
