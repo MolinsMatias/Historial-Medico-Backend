@@ -91,7 +91,7 @@ DATABASES = {
 }
 
 print("///////////////////////////////////////////////////////////Database configuration:", DATABASES['default'])
-
+print("//////////////////////////////////////////////////////////Wallet files:", os.listdir('/app/wallet'))
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
