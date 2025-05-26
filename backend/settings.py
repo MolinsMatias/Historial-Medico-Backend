@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'mmolins007')  
 
-DEBUG = True 
+DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -126,16 +126,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-try:
-    conn = oracledb.connect(
-        user=os.environ.get('ORACLE_USER'),
-        password=os.environ.get('ORACLE_PASSWORD'),
-        dsn=os.environ.get('ORACLE_DSN'),
-        config_dir=str(BASE_DIR / 'wallet'),
-        wallet_location=str(BASE_DIR / 'wallet'),
-    )
-    print("✅ Conexión directa con oracledb OK")
-    conn.close()
-except Exception as e:
-    print("❌ Error conectando manualmente:", e)
