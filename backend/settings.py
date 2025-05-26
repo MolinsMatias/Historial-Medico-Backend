@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.oracle',
+        'ENGINE': 'django_oracledb',
         'NAME': os.environ.get('ORACLE_CONNECT_STRING'),  
         'USER': os.environ.get('ORACLE_USER'),
         'PASSWORD': os.environ.get('ORACLE_PASSWORD'),

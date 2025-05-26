@@ -35,7 +35,5 @@ ENV TNS_ADMIN=/app/wallet
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-EXPOSE 10000
-
 
 CMD ["gunicorn", "--bind", "0.0.0.0:10000", "backend.wsgi:application"]
