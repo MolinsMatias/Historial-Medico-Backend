@@ -3,7 +3,7 @@ from django.urls import path
 from historialMedico import views
 
 urlpatterns = [
-    path('hist-medico/', views.HistMedList.as_view()),
-    path('hist-medico/<int:id_hist>', views.HistMedDetail.as_view()),
-    path('hist-medico/paciente/<int:paciente>', views.HistMedDetailPaciente.as_view()),
+    path('', views.HistMedList.as_view()),
+    path('<int:id_hist>', views.HistMedDetail.as_view()),
+    path('paciente/<int:paciente>', views.HistMedDetailPaciente.as_view()),
 ]
