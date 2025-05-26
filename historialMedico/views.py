@@ -19,4 +19,12 @@ class HistMedDetailPaciente(ListCreateAPIView):
     def get_queryset(self):
         paciente_id = self.kwargs.get('paciente')
         return HistorialMedico.objects.filter(paciente_id=paciente_id)
+    
+
+class HistMedDetailMedico(ListCreateAPIView):
+    serializer_class = HistMedSerializer
+
+    def get_queryset(self):
+        medico_id = self.kwargs.get('paciente_medico')
+        return HistorialMedico.objects.filter(paciente_id=medico_id)
      
