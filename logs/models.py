@@ -15,3 +15,5 @@ class LogAuditoria(models.Model):
             ultimo_id = LogAuditoria.objects.aggregate(Max('id_log'))['id_log__max']
             self.id_log = (ultimo_id or 0) + 1
         super().save(*args, **kwargs)
+
+

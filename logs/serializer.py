@@ -4,6 +4,6 @@ from .models import LogAuditoria
 class LogAuditoriaSerializer(serializers.ModelSerializer):
     class Meta:
         model = LogAuditoria
-        fields = '__all__'
+        fields = '__all__'  # <- También aquí
 
 
