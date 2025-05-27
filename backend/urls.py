@@ -12,4 +12,5 @@ urlpatterns = [
     path('api/documento/', include('documento.urls')),
     path('api/logs/', include('logs.urls')),
     path('api/receta/', include('receta.urls')),
+    
 ]

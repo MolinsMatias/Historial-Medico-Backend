@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'documento',
     'logs',
     'receta',
-    'api'
+    'api',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  
