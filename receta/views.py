@@ -27,5 +27,12 @@ class DetalleRecetaListCreate(ListCreateAPIView):
 
 class DetalleRecetaDetail(RetrieveUpdateDestroyAPIView):
     queryset = DetalleReceta.objects.all()
-    lookup_field = 'receta_id_rece'
+    lookup_field = 'id_det'
     serializer_class = DetalleRecetaSerializer
+
+class DetalleRecetaDetailReceta(ListCreateAPIView):
+    serializer_class = DetalleRecetaSerializer
+
+    def get_queryset(self):
+        receta_id_rece = self.kwargs.get('receta_id_rece')
+        return DetalleReceta.objects.filter(receta_id_rece=receta_id_rece)
