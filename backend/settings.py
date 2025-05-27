@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'examen',
     'documento',
     'logs',
+    'receta',
+    'api'
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  
