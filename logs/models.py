@@ -5,7 +5,7 @@ class LogAuditoria(models.Model):
     id_log = models.AutoField(primary_key=True)
     fecha_suceso = models.DateTimeField()
     operacion = models.CharField(max_length=100)
-    id_usuario = models.IntegerField()  # Sin ForeignKey
+    id_usuario = models.IntegerField()  
 
     class Meta:
         db_table = 'LOG_AUDITORIA'
