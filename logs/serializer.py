@@ -8,11 +8,6 @@ class LogAuditoriaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = LogAuditoria
-        fields = ['id_log', 'fecha_suceso', 'operacion', 'id_usuario', 'usuario']  # <- También aquí
+        fields = '__all__'
 
-    def get_usuario(self, obj):  # <- Nombre del método debe ser get_<nombre_del_campo>
-        try:
-            medico = obj.medico
-            return MedicoSerializer(medico).data if medico else None
-        except:
-            return None
+
