@@ -8,6 +8,7 @@ def api_overview(request):
         "Paciente": "/api/paciente/",
         "Historial Médico": "/api/hist-medico/",
         "Consulta Médica": "/api/consulta-medica/",
+        "Receta": "/api/receta/",
         "Examen": "/api/examen/",
         "Documento": "/api/documento/",
         "Logs": "/api/logs/",
